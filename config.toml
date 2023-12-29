@@ -1,0 +1,44 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "solarized-dark"
+[theme.overrides]
+idle_bg = "#123456"
+idle_fg = "#abcdef"
+
+[icons]
+icons = "awesome4"
+
+[[block]]
+block = "cpu"
+
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = " $icon root: $available.eng(w:2) "
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "easyeffects"
+
+[[block]]
+block = "custom"
+interval = 1
+command = "/home/guilherme/.config/i3/configs/keyboardLayout.py"
+[[block.mappings]]
+"English (US)" = "US"
+
+[[block]]
+block = "time"
+interval = 5
+format = " $timestamp.datetime(f:'%a %d/%m %R') "
+[[block.click]]
+button = "left"
+cmd = "gsimplecal"
