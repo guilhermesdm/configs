@@ -1,6 +1,7 @@
 # Set default super key
 set $mod Mod4
-font pango:Droid Sans 12
+# Set bar font
+font pango:Fira Sans Condensed 12
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -18,15 +19,11 @@ bindsym Print exec flameshot gui
 # Keyboard layout
 exec --no-startup-id setxkbmap -layout us,br -option grp:alt_shift_toggle
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
+# i3 lock
+exec --no-startup-id xautolock -time 15 -locker 'systemctl suspend' -notify 600 -notifier 'i3lock | xset dpms force off' &
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
+# network manager applet
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
@@ -50,13 +47,13 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
-# start a terminal
-bindsym $mod+Return exec xterm
+# start terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# Search
+# dmenu
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
@@ -190,7 +187,6 @@ set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot
 
 set $Locker i3lock && sleep 1
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
@@ -204,8 +200,11 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# custom binds
+# set wacom
+bindsym $mod+Shift+w exec --no-startup-id "sh /home/guilherme/.config/i3/configs/setwacom.sh"
+
+# starts the i3status-rs bar configured
 bar {
         status_command /usr/bin/i3status-rs /home/guilherme/.config/i3status-rust/config.toml
 	tray_output primary
