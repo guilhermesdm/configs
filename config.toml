@@ -1,13 +1,18 @@
 icons_format = "{icon}"
 
 [theme]
-theme = "solarized-dark"
+theme = "dracula"
 [theme.overrides]
 idle_bg = "#123456"
 idle_fg = "#abcdef"
 
 [icons]
-icons = "awesome4"
+icons = "awesome6"
+
+[[block]]
+block = "music"
+format = " $icon {$combo.str(max_w:20,rot_interval:0.5) $play $next |}"
+player = "spotify"
 
 [[block]]
 block = "cpu"
@@ -32,8 +37,10 @@ cmd = "easyeffects"
 block = "custom"
 interval = 1
 command = "/home/guilherme/.config/i3/configs/keyboardLayout.py"
-[[block.mappings]]
-"English (US)" = "US"
+format = "⌨ $text"
+[[block.click]]
+button = "left"
+cmd = "xkblayout-state set +1"
 
 [[block]]
 block = "time"
