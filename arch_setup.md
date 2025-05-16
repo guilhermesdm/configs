@@ -104,7 +104,7 @@
 # WM
 
 ```
-> pacman -S i3 picom wezterm xdg-utils lxappearance xfce4-notifyd feh maim
+> pacman -S i3 picom xterm xdg-utils xfce4-notifyd feh maim
 ```
 
 # Fonts
