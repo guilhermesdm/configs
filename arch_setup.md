@@ -1,34 +1,34 @@
 # Defining partitions
 
 ```
-> parted /dev/sda
+> parted /dev/nvme0n1
 > mklabel gpt
 > mkpart ESP fat32 1MiB 1025MiB
 > set 1 boot on
-> mkpart primary linux-swap 1025MiB 9G
-> mkpart primary ext4 9G 58G
-> mkpart primary ext4 58G 100%
+> mkpart primary linux-swap 1025MiB 33G
+> mkpart primary ext4 32G 90G
+> mkpart primary ext4 90G 100%
 > quit
 ```
 
 # Format partitions
 
 ```
-> mkfs.fat -F32 /dev/sda1
-> mkswap /dev/sda2
-> swapon /dev/sda2
-> mkfs.ext4 /dev/sda3
-> mkfs.ext4 /dev/sda4
+> mkfs.fat -F32 /dev/nvme0n1p1
+> mkswap /dev/nvme0n1p2
+> swapon /dev/nvme0n1p2
+> mkfs.ext4 /dev/nvme0n1p3
+> mkfs.ext4 /dev/nvme0n1p4
 ```
 
 # Mount partitions
 
 ```
-> mount /dev/sda3 /mnt
+> mount /dev/nvme0n1p3 /mnt
 > mkdir -p /mnt/boot/EFI
-> mount /dev/sda1 /mnt/boot/EFI
+> mount /dev/nvme0n1p1 /mnt/boot/EFI
 > mkdir /mnt/home
-> mount /dev/sda4 /mnt/home
+> mount /dev/nvme0n1p4 /mnt/home
 ```
 
 # Installing base packages
@@ -77,6 +77,9 @@
 
 ```
 > pacman -S grub efibootmr networkmanager network-manager-applet wireless_tools wpa_supplicant dialog os-prober mtools dosfstools linux-headers bluez bluez-utils
+> systemctl enable NetworkManager
+> systemctl enable wpa_supplicant
+> systemctl enable systemd-resolved
 ```
 
 # GRUB
@@ -101,7 +104,7 @@
 # WM
 
 ```
-> pacman -S i3 picom ghostty xdg-utils lxappearance xfce4-notifyd feh maim
+> pacman -S i3 picom wezterm xdg-utils lxappearance xfce4-notifyd feh maim
 ```
 
 # Fonts
@@ -114,7 +117,7 @@
 
 ```
 > touch .Xresources
-> nvim .xinitrc
+> nvim .xinitrc (in home)
   -- xrdb -merge $HOME/.Xresources
   -- exec i3
 ```
