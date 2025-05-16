@@ -110,7 +110,7 @@
 # Fonts
 
 ```
-> pacman -S ttf-font-awesome ttf-dejavu
+> pacman -S ttf-font-awesome ttf-dejavu ttf-liberation-mono-nerd
 ```
 
 # Xinit
