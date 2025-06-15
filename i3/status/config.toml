@@ -1,10 +1,7 @@
 icons_format = "{icon}"
 
 [theme]
-theme = "dracula"
-[theme.overrides]
-idle_bg = "#123456"
-idle_fg = "#abcdef"
+theme = "space-villain"
 
 [icons]
 icons = "awesome6"
@@ -15,7 +12,10 @@ format = " $icon {$combo.str(max_w:20,rot_interval:0.5) $play $next |}"
 player = "spotify"
 
 [[block]]
-block = "cpu"
+block = "hueshift"
+hue_shifter = "redshift"
+step = 50
+click_temp = 3500
 
 [[block]]
 block = "disk_space"
@@ -31,16 +31,20 @@ format = " $icon root: $available.eng(w:2) "
 block = "sound"
 [[block.click]]
 button = "left"
-cmd = "easyeffects"
+cmd = "pavucontrol"
 
 [[block]]
 block = "custom"
-interval = 1
-command = "/home/guilherme/.config/i3/configs/keyboardLayout.py"
-format = "⌨ $text"
-[[block.click]]
-button = "left"
-cmd = "xkblayout-state set +1"
+command = "setxkbmap -query | grep layout | awk '{print $2}'"
+interval = 10
+
+[[block]]
+block = "packages"
+package_manager = ["pacman"]
+interval = 600
+format = " $icon $pacman updates available "
+format_singular = " $icon $pacman update available "
+format_up_to_date = " $icon system up to date "
 
 [[block]]
 block = "time"
