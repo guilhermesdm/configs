@@ -5,7 +5,7 @@ Thinkpad T14 Gen 1 AMD
 
 # Post OS installation process
 
-> sudo pacman -S i3-wm i3status i3lock i3blocks dmenu brightnessctl xbindkeys playerctl pamixer rustup cargo tlp tlp-rdw dunst libnotify picom feh noto-fonts noto-fonts-emoji xorg-xinput rofi smartmontools ethtool acpi_call powertop alacritty pavucontrol udiskie flameshot neovim git otf-font-awesome fastfetch
+> sudo pacman -S i3-wm i3status i3lock i3blocks dmenu brightnessctl xbindkeys playerctl pamixer rustup cargo tlp tlp-rdw dunst libnotify picom feh noto-fonts noto-fonts-emoji xorg-xinput rofi smartmontools ethtool acpi_call powertop alacritty pavucontrol udiskie flameshot neovim git otf-font-awesome fastfetch acpi
 
 > sudo systemctl enable tlp --now
 
@@ -40,3 +40,5 @@ Thinkpad T14 Gen 1 AMD
 # NVM
 
 > curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
+> nvm install 20
