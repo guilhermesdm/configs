@@ -20,8 +20,14 @@ exec --no-startup-id dunst
 exec --no-startup-id feh --bg-fill $HOME/.config/i3/wallpaper.jpg
 exec --no-startup-id udiskie --tray
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id picom --config $HOME/.config/picom/picom.conf
+exec --no-startup-id xidlehook \
+--detect-sleep \
+--not-when-audio \
+--not-when-fullscreen \
+--timer 300 'xset dpms force standby' '' \
+--timer 300 'i3lock' '' \
+--timer 300 'systemctl suspend' ''
 
 # ========
 # Keybinds

@@ -5,7 +5,7 @@ Thinkpad T14 Gen 1 AMD
 
 # Post OS installation process
 
-> sudo pacman -S i3-wm i3status i3lock i3blocks dmenu brightnessctl xbindkeys playerctl pamixer rustup cargo tlp tlp-rdw dunst libnotify picom feh noto-fonts noto-fonts-emoji xorg-xinput rofi smartmontools ethtool acpi_call powertop alacritty pavucontrol udiskie flameshot neovim git otf-font-awesome fastfetch acpi
+> sudo pacman -S i3-wm i3status i3lock i3blocks dmenu brightnessctl xbindkeys playerctl pamixer rustup cargo tlp tlp-rdw dunst libnotify picom feh noto-fonts noto-fonts-emoji xorg-xinput rofi smartmontools ethtool acpi_call powertop alacritty pavucontrol udiskie flameshot neovim git otf-font-awesome fastfetch acpi lxappearance4 tmux
 
 > sudo systemctl enable tlp --now
 
@@ -42,3 +42,21 @@ Thinkpad T14 Gen 1 AMD
 > curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 > nvm install 20
+
+# Rustup
+
+> rustup default stable
+
+
+# Paru
+
+> git clone https://github.com/Morganamilo/paru > ~
+
+> cd paru
+
+> makepkg -si
+
+
+# XIdleHook
+
+> paru -S xidlehook
