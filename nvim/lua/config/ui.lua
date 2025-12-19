@@ -1,4 +1,4 @@
-vim.o.guifont = "Iosevka SS18"
+vim.o.guifont = "BlexMono Nerd Font"
 
 vim.opt.showmatch = true
 vim.opt.cmdheight = 1
