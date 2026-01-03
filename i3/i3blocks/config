@@ -1,11 +1,11 @@
 [backlight]
 command=$SCRIPT_DIR/backlight.sh
-label=☀
+label= 
 interval=once
 signal=10
 
 [battery]
-command=$SCRIPT_DIR/battery
+command=$SCRIPT_DIR/battery.sh
 interval=30
 LABEL=⚡
 
@@ -14,17 +14,21 @@ command=$SCRIPT_DIR/temp.sh
 interval=5
 
 [volume-pipewire]
-command=$SCRIPT_DIR/volume
-interval=persist
-SUBSCRIBE=1
-USE_ALSA_NAME=1
+command=$SCRIPT_DIR/volume.sh
+interval=once
+signal=10
+
+[microphone]
+command=$SCRIPT_DIR/mic.sh
+interval=once
+signal=10
 
 [keyboard]
 command=$SCRIPT_DIR/kb-status.sh
 interval=2
 
 [time]
-command=date '+%H:%M - %d/%m/%Y'
+command=$SCRIPT_DIR/datetime.sh
 interval=5
 
 [dunst]

@@ -8,6 +8,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+export Documents="$HOME/Documents/"
+export Downloads="$HOME/Downloads/"
+export Desktop="$HOME/Desktop/"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

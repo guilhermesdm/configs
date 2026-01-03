@@ -169,7 +169,6 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-
 # ============
 # Color scheme
 # ============
@@ -187,6 +186,9 @@ client.focused_inactive     $border  $border  $fg  $border
 client.unfocused            $bg_alt  $bg_alt  $fg  $bg_alt
 client.urgent               $urgent  $urgent  $fg  $urgent
 client.placeholder          $bg      $bg      $fg  $bg
+
+for_window [class="Yad"] floating enable
+for_window [class="Yad"] move position mouse
 
 # ===
 # Bar
